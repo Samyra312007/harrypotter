@@ -1,0 +1,218 @@
+body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dark {
+  --bg: #1a1a2e;
+  --text: #eaeaea;
+  --card-front: #16213e;
+  --card-back: #0f3460;
+  background-color: var(--bg);
+  color: var(--text);
+  background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+}
+
+.light {
+  --bg: #f0f0f0;
+  --text: #333;
+  --card-front: #ffffff;
+  --card-back: #eee;
+  background-color: var(--bg);
+  color: var(--text);
+  background-image: url("https://www.transparenttextures.com/patterns/white-carbon.png");
+}
+
+h1 {
+  text-align: center;
+}
+
+.btns {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btns button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btns button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+}
+
+#controls,
+#charControls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#spellList,
+#charList,
+#houseList,
+#favoriteList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.6s;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: background-color 0.3s;
+}
+
+.card-front {
+  background-color: var(--card-front);
+}
+
+.card-back {
+  background-color: var(--card-back);
+  transform: rotateY(180deg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  border-radius: 10px;
+  position: relative;
+}
+
+.dark .modal-content {
+  background-color: #222;
+  color: #fff;
+}
+
+.light .modal-content {
+  background-color: #fff;
+  color: #000;
+}
+
+.close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.info-card {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--card-front);
+  color: var(--text);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: scale(1.02);
+}
+
+.info-card p {
+  margin: 5px 0;
+}
+
+.fav {
+  cursor: pointer;
+  float: right;
+}
+
+.gryffindor {
+  border-left: 5px solid #ae0001;
+}
+
+.slytherin {
+  border-left: 5px solid #2a623d;
+}
+
+.ravenclaw {
+  border-left: 5px solid #222f5b;
+}
+
+.hufflepuff {
+  border-left: 5px solid #ecb939;
+}
+
+.unknown {
+  border-left: 5px solid #666;
+}
+
+#spellCount,
+#charCount {
+  text-align: center;
+  margin: 10px;
+}
+
+.warn {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+#favoriteList .info-card {
+  border: 2px dashed gold;
+}
